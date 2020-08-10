@@ -46,6 +46,9 @@ class BackEndGarantieProjectApplicationTests {
 		when(daoo.findAll()).thenReturn(Stream
 				.of(new PGarantie("1", "test1","test1",true,100.0), new PGarantie("2", "test2","test2",true,150.0)).collect(Collectors.toList()));
 		assertEquals(2, service.findAll().size());
+		if (service.findAll().size() == 2){
+			System.out.println("The Test Find All is OK");
+		}
 	}
 	
 	/*@Test
@@ -69,7 +72,6 @@ class BackEndGarantieProjectApplicationTests {
 	public void deleteGarantieTest() {
 		PGarantie garantie = new PGarantie("5", "test5","test5",true,200.0);
 		String idG = "5";
-		service.delete(idG);
 		service.delete(idG);
 		verify(daoo, times(1)).deleteById(idG);
 	}
