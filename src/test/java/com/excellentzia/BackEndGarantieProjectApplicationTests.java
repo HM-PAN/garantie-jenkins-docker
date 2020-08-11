@@ -1,30 +1,26 @@
 package com.excellentzia;
 
+import com.excellentzia.dao.PGarantieRepository;
+import com.excellentzia.services.PGarantieService;
 import org.junit.jupiter.api.Test;
 
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.excellentzia.BackEndGarantieProjectApplication;
-import com.excellentzia.models.PGarantie;
-import com.excellentzia.repository.IPGarantieDao;
-import com.excellentzia.services.impl.PGarantieServiceImpl;
+import com.excellentzia.entities.PGarantie;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.when;
+
 //@RunWith(MockitoJUnitRunner.class)
 //@ContextConfiguration(loader=AnnotationConfigContextLoader.class, classes = SpringRunner.class)
 @RunWith(SpringRunner.class)
@@ -36,10 +32,14 @@ class BackEndGarantieProjectApplicationTests {
 //	void contextLoads() {
 	//}
 	@Autowired
-	private PGarantieServiceImpl service;
+	private PGarantieService service;
 	
 	@MockBean
-	private IPGarantieDao daoo;
+	private PGarantieRepository daoo;
+
+
+
+	List mockWithLogger = mock(List.class, withSettings().verboseLogging());
 	
 	@Test
 	public void getGarantiesTest() {
@@ -48,6 +48,7 @@ class BackEndGarantieProjectApplicationTests {
 		assertEquals(2, service.findAll().size());
 		if (service.findAll().size() == 2){
 			System.out.println("The Test Find All is OK");
+
 		}
 	}
 	
