@@ -25,7 +25,7 @@ public class PGarantieController {
  @RequestMapping(value ="/GetAll", method = RequestMethod.GET)
  List<PGarantie> GetAll() {
 	 if(service.counter()==0 ) {
-		 throw new ApiRequestException("Ops there is no Garanties !!");	 
+		 throw new ApiRequestException("Ops there is no Garanties!!");
 	 }
 	return service.findAll();
 	
