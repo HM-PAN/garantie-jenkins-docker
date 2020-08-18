@@ -1,9 +1,10 @@
-package com.excellentzia.controllers;
+package com.app.assurance.controllers;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.excellentzia.services.PGarantieService;
+import com.app.assurance.exception.ApiRequestException;
+import com.app.assurance.services.PGarantieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.excellentzia.exception.ApiRequestException;
-import com.excellentzia.entities.PGarantie;
+import com.app.assurance.entities.PGarantie;
 
 @RestController
-@RequestMapping("assurance/pgarantie/")
+@RequestMapping("/assurance/pgarantie")
 @CrossOrigin
 public class PGarantieController {
  @Autowired

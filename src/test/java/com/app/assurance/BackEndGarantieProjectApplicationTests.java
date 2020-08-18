@@ -1,48 +1,76 @@
-package com.excellentzia;
+package com.app.assurance;
 
-import com.excellentzia.dao.PGarantieRepository;
-import com.excellentzia.services.PGarantieService;
+import com.app.assurance.dao.PGarantieRepository;
+import com.app.assurance.services.PGarantieService;
 import org.junit.jupiter.api.Test;
 
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.excellentzia.entities.PGarantie;
+import com.app.assurance.entities.PGarantie;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static org.mockito.Mockito.*;
 
-//@RunWith(MockitoJUnitRunner.class)
-//@ContextConfiguration(loader=AnnotationConfigContextLoader.class, classes = SpringRunner.class)
-@RunWith(SpringRunner.class)
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
-//(classes = BackEndGarantieProjectApplication.class)
+//@ContextConfiguration(classes=BackEndGarantieProjectApplication.class)
+//@WebMvcTest
+
 class BackEndGarantieProjectApplicationTests {
-	//@Test
-//	void contextLoads() {
-	//}
+
 	@Autowired
 	private PGarantieService service;
-	
+
 	@MockBean
 	private PGarantieRepository daoo;
 
+//	@MockBean
+//	private PGarantieService service;
+//
+//	@Autowired
+//	MockMvc mockMvc;
 
 
-	List mockWithLogger = mock(List.class, withSettings().verboseLogging());
-	
+//@Test
+//	public void getGarantiesTest() throws Exception {
+////	when(service.findAll()).thenReturn(Stream
+////			.of(new PGarantie("1", "test1","test1",true,100.0), new PGarantie("2", "test2","test2",true,150.0)).collect(Collectors.toList()));
+//	when(service.findAll()).thenReturn(
+//			Collections.emptyList()
+//	);
+//	MvcResult mvcResult =	mockMvc.perform(
+//			MockMvcRequestBuilders.get("/assurance/pgarantie/GetAll").accept(MediaType.APPLICATION_JSON)
+//	).andReturn();
+//	System.out.println(mvcResult.getResponse());
+//	Mockito.verify(service).findAll();
+//}
+
+
 	@Test
-	public void getGarantiesTest() {
+	public void getGarantiesTest() throws Exception {
 		when(daoo.findAll()).thenReturn(Stream
 				.of(new PGarantie("1", "test1","test1",true,100.0), new PGarantie("2", "test2","test2",true,150.0)).collect(Collectors.toList()));
 		assertEquals(2, service.findAll().size());
@@ -51,24 +79,23 @@ class BackEndGarantieProjectApplicationTests {
 
 		}
 	}
-	
-	/*@Test
-	public void getGarantieByIdTest() {
-		//PGarantie garantie = new PGarantie("2", "test2","test2",true,200.0);
-		String idG = "2";
-		when(daoo.findById(idG)).thenReturn(Stream
-				.of(new PGarantie("1", "test1","test1",true,100.0)).collect(Collectors.toList()));
 
-	}*/
-	
+	@Test
+	public void getGarantieByIdTest() {
+		PGarantie garantie = new PGarantie("2", "test2","test2",true,200.0);
+		when(daoo.findById("2")).thenReturn(Optional.of(garantie));
+
+	}
+
 	@Test
 	public void saveGarantieTest() {
 		PGarantie garantie = new PGarantie("4", "test4","test4",true,200.0);
 		when(daoo.save(garantie)).thenReturn(garantie);
 		assertEquals(garantie, service.add(garantie));
+		System.out.println("saving is Done !");
 	}
-	
-	
+
+
 	@Test
 	public void deleteGarantieTest() {
 		PGarantie garantie = new PGarantie("5", "test5","test5",true,200.0);
@@ -77,7 +104,7 @@ class BackEndGarantieProjectApplicationTests {
 		verify(daoo, times(1)).deleteById(idG);
 	}
 	
-	
+
 	
 	
 	

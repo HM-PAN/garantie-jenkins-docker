@@ -1,4 +1,4 @@
 FROM openjdk:8
-EXPOSE 8181
+EXPOSE 8181ances
 ADD target/back-end-GarantieProject-0.0.1-SNAPSHOT.jar assurance-app
 ENTRYPOINT ["java","-jar","/back-end-GarantieProject-0.0.1-SNAPSHOT.jar"]

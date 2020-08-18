@@ -1,4 +1,4 @@
-package com.excellentzia.entities;
+package com.app.assurance.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

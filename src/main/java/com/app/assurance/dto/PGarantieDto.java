@@ -1,4 +1,4 @@
-package com.excellentzia.dto;
+package com.app.assurance.dto;
 
 public class PGarantieDto {
 private String idG;

@@ -1,7 +1,7 @@
-package com.excellentzia.services;
+package com.app.assurance.services;
 
-import com.excellentzia.dao.PGarantieDao;
-import com.excellentzia.entities.PGarantie;
+import com.app.assurance.dao.PGarantieDao;
+import com.app.assurance.entities.PGarantie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

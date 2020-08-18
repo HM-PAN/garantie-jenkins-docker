@@ -1,6 +1,6 @@
-package com.excellentzia.dto;
+package com.app.assurance.dto;
 
-import com.excellentzia.entities.PGarantie;
+import com.app.assurance.entities.PGarantie;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

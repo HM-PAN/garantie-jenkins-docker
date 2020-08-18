@@ -1,4 +1,4 @@
-package com.excellentzia.exception;
+package com.app.assurance.exception;
 
 public class ApiRequestException extends RuntimeException {
 

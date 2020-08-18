@@ -1,4 +1,4 @@
-package com.excellentzia.configurations;
+package com.app.assurance.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class SwaggerConfig {
                 .groupName("Assurance")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage( "com.excellentzia.controllers" ) )
+                .apis(RequestHandlerSelectors.basePackage( "com.app.assurance.controllers" ) )
                 .paths(PathSelectors.any())
                 .build();
 
