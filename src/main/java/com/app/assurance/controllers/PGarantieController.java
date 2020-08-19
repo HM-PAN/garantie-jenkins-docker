@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.assurance.entities.PGarantie;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/assurance/pgarantie")
-@CrossOrigin
+
 public class PGarantieController {
  @Autowired
  private PGarantieService service;
- 
+
  @RequestMapping(value ="/GetAll", method = RequestMethod.GET)
  List<PGarantie> GetAll() {
 	 if(service.counter()==0 ) {

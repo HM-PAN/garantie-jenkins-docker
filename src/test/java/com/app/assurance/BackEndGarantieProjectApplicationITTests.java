@@ -55,7 +55,7 @@ class BackEndGarantieProjectApplicationITTests {
 	}
 	@Test
 	public void testGetGarantieById() {
-		PGarantie pgarantie = restTemplate.getForObject(getRootUrl() + "/assurance/pgarantie/GetOne/1", PGarantie.class);
+		PGarantie pgarantie = restTemplate.getForObject(getRootUrl() + "/assurance/pgarantie/GetOne/2", PGarantie.class);
 		System.out.println(pgarantie.getDescription());
 		assertNotNull(pgarantie);
 	}
@@ -63,9 +63,9 @@ class BackEndGarantieProjectApplicationITTests {
 	@Test
 	public void testCreateGarantie() {
 		PGarantie pgarantie = new PGarantie();
-		pgarantie.setIdG("2");
-		pgarantie.setLabel("test2");
-		pgarantie.setDescription("test2");
+		pgarantie.setIdG("3");
+		pgarantie.setLabel("test3");
+		pgarantie.setDescription("test3");
 		pgarantie.setObligatory(false);
 		pgarantie.setBase_price(200.0);
 		ResponseEntity<PGarantie> postResponse = restTemplate.postForEntity(getRootUrl() + "/assurance/pgarantie/Add", pgarantie, PGarantie.class);
