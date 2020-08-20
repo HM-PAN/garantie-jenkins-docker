@@ -2,8 +2,9 @@ package com.app.assurance;
 
 import com.app.assurance.dao.PGarantieRepository;
 import com.app.assurance.services.PGarantieService;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,35 +40,13 @@ import static org.mockito.Mockito.*;
 //@ContextConfiguration(classes=BackEndGarantieProjectApplication.class)
 //@WebMvcTest
 
-class BackEndGarantieProjectApplicationTests {
+public class BackEndGarantieProjectApplicationTests {
 
 	@Autowired
 	private PGarantieService service;
 
 	@MockBean
 	private PGarantieRepository daoo;
-
-//	@MockBean
-//	private PGarantieService service;
-//
-//	@Autowired
-//	MockMvc mockMvc;
-
-
-//@Test
-//	public void getGarantiesTest() throws Exception {
-////	when(service.findAll()).thenReturn(Stream
-////			.of(new PGarantie("1", "test1","test1",true,100.0), new PGarantie("2", "test2","test2",true,150.0)).collect(Collectors.toList()));
-//	when(service.findAll()).thenReturn(
-//			Collections.emptyList()
-//	);
-//	MvcResult mvcResult =	mockMvc.perform(
-//			MockMvcRequestBuilders.get("/assurance/pgarantie/GetAll").accept(MediaType.APPLICATION_JSON)
-//	).andReturn();
-//	System.out.println(mvcResult.getResponse());
-//	Mockito.verify(service).findAll();
-//}
-
 
 	@Test
 	public void getGarantiesTest() throws Exception {
