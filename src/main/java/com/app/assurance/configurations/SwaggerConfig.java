@@ -20,7 +20,7 @@ public class SwaggerConfig {
                 .groupName("Assurance")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage( "com.app.assurance.controllers" ) )
+                .apis(RequestHandlerSelectors.basePackage( "com.excellentzia.controllers" ) )
                 .paths(PathSelectors.any())
                 .build();
 
