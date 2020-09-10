@@ -80,6 +80,7 @@ public class BackEndGarantieProjectApplicationTests {
 		PGarantie garantie = new PGarantie("5", "test5","test5",true,200.0);
 		String idG = "5";
 		service.delete(idG);
+        service.delete(idG);
 		verify(daoo, times(1)).deleteById(idG);
 	}
 	

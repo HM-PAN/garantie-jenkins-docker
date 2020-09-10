@@ -17,7 +17,7 @@ import com.app.assurance.entities.PGarantie;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/assurance/pgarantie")
-
+line 
 public class PGarantieController {
  @Autowired
  private PGarantieService service;
